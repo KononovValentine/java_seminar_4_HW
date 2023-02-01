@@ -5,74 +5,74 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
-        System.out.println("Здравствуйте!");
+        System.out.println("Р—РґСЂР°РІСЃС‚РІСѓР№С‚Рµ!");
         startProgram();
     }
 
     static void startProgram() {
-        System.out.println("Введите номер программы (1-4), либо введите \"Q\" для выхода.");
+        System.out.println("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РїСЂРѕРіСЂР°РјРјС‹ (1-4), Р»РёР±Рѕ РІРІРµРґРёС‚Рµ \"Q\" РґР»СЏ РІС‹С…РѕРґР°.");
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Программа № ");
+        System.out.print("РџСЂРѕРіСЂР°РјРјР° в„– ");
         String program = scanner.nextLine();
         if (program.equalsIgnoreCase("q")) {
-            System.out.println("До свидания!");
+            System.out.println("Р”Рѕ СЃРІРёРґР°РЅРёСЏ!");
         } else if (program.chars().allMatch(Character::isDigit)) {
             switch (program) {
                 case "1" -> ex0();
                 case "2" -> ex1();
                 case "3" -> ex2();
                 default -> {
-                    System.out.println("Введен некорректный номер, пожалуйста, попробуйте еще раз.");
+                    System.out.println("Р’РІРµРґРµРЅ РЅРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РЅРѕРјРµСЂ, РїРѕР¶Р°Р»СѓР№СЃС‚Р°, РїРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·.");
                     startProgram();
                 }
             }
         } else {
-            System.out.println("Ввод некорректен, пожалуйста, попробуйте еще раз.");
+            System.out.println("Р’РІРѕРґ РЅРµРєРѕСЂСЂРµРєС‚РµРЅ, РїРѕР¶Р°Р»СѓР№СЃС‚Р°, РїРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·.");
             startProgram();
         }
     }
 
-    // Задача 1. Пусть дан LinkedList с несколькими элементами. Реализуйте метод, который вернет “перевернутый” список.
+    // Р—Р°РґР°С‡Р° 1. РџСѓСЃС‚СЊ РґР°РЅ LinkedList СЃ РЅРµСЃРєРѕР»СЊРєРёРјРё СЌР»РµРјРµРЅС‚Р°РјРё. Р РµР°Р»РёР·СѓР№С‚Рµ РјРµС‚РѕРґ, РєРѕС‚РѕСЂС‹Р№ РІРµСЂРЅРµС‚ вЂњРїРµСЂРµРІРµСЂРЅСѓС‚С‹Р№вЂќ СЃРїРёСЃРѕРє.
     static void ex0() {
         MyLinkedList list = new MyLinkedList(){};
         list.add("a");
         list.add(1);
         list.add("c");
         list.add(123);
-        System.out.println("Изначальный список " + list.print());
-        System.out.println("Развернутый список " + list.reverse());
+        System.out.println("РР·РЅР°С‡Р°Р»СЊРЅС‹Р№ СЃРїРёСЃРѕРє " + list.print());
+        System.out.println("Р Р°Р·РІРµСЂРЅСѓС‚С‹Р№ СЃРїРёСЃРѕРє " + list.reverse());
     }
 
-    // Задача 2. Реализуйте очередь с помощью LinkedList со следующими методами:enqueue() - помещает элемент в конец
-    // очереди, dequeue() - возвращает первый элемент из очереди и удаляет его, first() - возвращает первый элемент
-    // из очереди, не удаляя.
+    // Р—Р°РґР°С‡Р° 2. Р РµР°Р»РёР·СѓР№С‚Рµ РѕС‡РµСЂРµРґСЊ СЃ РїРѕРјРѕС‰СЊСЋ LinkedList СЃРѕ СЃР»РµРґСѓСЋС‰РёРјРё РјРµС‚РѕРґР°РјРё:enqueue() - РїРѕРјРµС‰Р°РµС‚ СЌР»РµРјРµРЅС‚ РІ РєРѕРЅРµС†
+    // РѕС‡РµСЂРµРґРё, dequeue() - РІРѕР·РІСЂР°С‰Р°РµС‚ РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ РёР· РѕС‡РµСЂРµРґРё Рё СѓРґР°Р»СЏРµС‚ РµРіРѕ, first() - РІРѕР·РІСЂР°С‰Р°РµС‚ РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚
+    // РёР· РѕС‡РµСЂРµРґРё, РЅРµ СѓРґР°Р»СЏСЏ.
     static void ex1() {
         MyLinkedList list = new MyLinkedList(){};
         list.enqueue("a");
         list.enqueue(1);
         list.enqueue("c");
         list.enqueue(123);
-        System.out.println("Изначальный список " + list.print());
-        System.out.println("Первый элемент " + list.first());
-        System.out.println("Последний элемент " + list.last());
-        System.out.println("Удаленный элемент " + list.dequeue());
-        System.out.println("Итоговый список " + list.print());
+        System.out.println("РР·РЅР°С‡Р°Р»СЊРЅС‹Р№ СЃРїРёСЃРѕРє " + list.print());
+        System.out.println("РџРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ " + list.first());
+        System.out.println("РџРѕСЃР»РµРґРЅРёР№ СЌР»РµРјРµРЅС‚ " + list.last());
+        System.out.println("РЈРґР°Р»РµРЅРЅС‹Р№ СЌР»РµРјРµРЅС‚ " + list.dequeue());
+        System.out.println("РС‚РѕРіРѕРІС‹Р№ СЃРїРёСЃРѕРє " + list.print());
     }
 
-    // Задача 3. Найдите сумму всех элементов LinkedList, сохраняя все элементы в списке. Используйте итератор
+    // Р—Р°РґР°С‡Р° 3. РќР°Р№РґРёС‚Рµ СЃСѓРјРјСѓ РІСЃРµС… СЌР»РµРјРµРЅС‚РѕРІ LinkedList, СЃРѕС…СЂР°РЅСЏСЏ РІСЃРµ СЌР»РµРјРµРЅС‚С‹ РІ СЃРїРёСЃРєРµ. РСЃРїРѕР»СЊР·СѓР№С‚Рµ РёС‚РµСЂР°С‚РѕСЂ
     static void ex2() {
         MyLinkedList list = new MyLinkedList(){};
         list.enqueue(10);
         list.enqueue(1);
         list.enqueue(15);
         list.enqueue(123);
-        System.out.println("Изначальный список " + list.print());
+        System.out.println("РР·РЅР°С‡Р°Р»СЊРЅС‹Р№ СЃРїРёСЃРѕРє " + list.print());
         MyClass result = list.getSum();
-        System.out.println("Список значений " + Arrays.toString(result.getArray()));
-        System.out.println("Сумма значений " + result.getSum());
+        System.out.println("РЎРїРёСЃРѕРє Р·РЅР°С‡РµРЅРёР№ " + Arrays.toString(result.getArray()));
+        System.out.println("РЎСѓРјРјР° Р·РЅР°С‡РµРЅРёР№ " + result.getSum());
     }
 
-    // Возможно последнее я немного не так понял и не нужно было создавать дополнительный список, а просто не удалять
-    // элементы из текущего... Но уже сделал... Зато сделал свой класс для возврата из функции списка и значения суммы.
+    // Р’РѕР·РјРѕР¶РЅРѕ РїРѕСЃР»РµРґРЅРµРµ СЏ РЅРµРјРЅРѕРіРѕ РЅРµ С‚Р°Рє РїРѕРЅСЏР» Рё РЅРµ РЅСѓР¶РЅРѕ Р±С‹Р»Рѕ СЃРѕР·РґР°РІР°С‚СЊ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ СЃРїРёСЃРѕРє, Р° РїСЂРѕСЃС‚Рѕ РЅРµ СѓРґР°Р»СЏС‚СЊ
+    // СЌР»РµРјРµРЅС‚С‹ РёР· С‚РµРєСѓС‰РµРіРѕ... РќРѕ СѓР¶Рµ СЃРґРµР»Р°Р»... Р—Р°С‚Рѕ СЃРґРµР»Р°Р» СЃРІРѕР№ РєР»Р°СЃСЃ РґР»СЏ РІРѕР·РІСЂР°С‚Р° РёР· С„СѓРЅРєС†РёРё СЃРїРёСЃРєР° Рё Р·РЅР°С‡РµРЅРёСЏ СЃСѓРјРјС‹.
     // =)
 }
