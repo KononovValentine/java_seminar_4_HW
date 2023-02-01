@@ -7,12 +7,12 @@ public class MyClass {
         this.sum = sum;
     }
 
-    // Возвращает список
+    // Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє
     int[] getArray() {
         return array;
     }
 
-    // Возвращает сумму
+    // Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃСѓРјРјСѓ
     int getSum() {
         return sum;
     }
